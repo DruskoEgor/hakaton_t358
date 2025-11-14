@@ -44,7 +44,7 @@ sudo systemctl start docker
 sudo systemctl enable docker
 sudo usermod -aG docker $USER
 
-# Скопируйте папку local из репозитория в созданную папку
+# Скопируйте папку docker из репозитория в созданную папку
 
 # убедитесь что в папке присутствуют данные файлы
 # - bot.js
