@@ -292,7 +292,23 @@ bot.command('start', async (ctx) => {
 });
 
 bot.command('about', async (ctx) => {
-  return await ctx.reply('Это бот для быстрого волонтерства на районе, разработчики этого бота - команда людей, которые хотят сделать мир лучше');
+  const aboutText = `
+О создателях:
+
+КОМАНДА АЙТИгры
+
+• Александр Самсонов -> исследователь дизайнер
+• Егор Друско -> тимлид разработчик  
+• Дмитрий Сарычев -> разработчик
+
+Мы студенты 8 института МАИ. Наша цель: популяризация волонтерства и взаимопомощи через современные технологии.
+
+Этот бот создан в рамках хакатона для быстрого соединения людей, нуждающихся в помощи, с теми, кто готов помочь. Мы верим, что технологии могут сделать добрые дела более доступными и эффективными.
+
+Присоединяйтесь к нашему сообществу волонтеров!
+  `;
+
+  await ctx.reply(aboutText);
 });
 
 bot.command('profile', async (ctx) => {
@@ -833,23 +849,24 @@ async function showHelpRequest(ctx, index = 0, category = null, district = null)
   if (navigationButtons.length > 0) {
     keyboardRows.push(navigationButtons);
   }
-
   if (!hasResponded) {
     keyboardRows.push([
-      Keyboard.button.callback('Откликнуться', `respond_${request.id}`)
+      Keyboard.button.callback('Откликнутся', `respond_${request.id}`)
     ]);
   }
-
-  const backButtons = [];
   if (category) {
-    backButtons.push(Keyboard.button.callback('Выбрать другую категорию', `back_to_categories_help_${district}`));
+    keyboardRows.push([
+      Keyboard.button.callback('Выбрать другую категорию', `back_to_categories_help_${district}`)
+    ]);
   }
   if (district) {
-    backButtons.push(Keyboard.button.callback('Выбрать другой округ', `back_to_districts_help`));
+    keyboardRows.push([
+      Keyboard.button.callback('Выбрать другой округ', `back_to_districts_help`)
+    ]);
   }
-  backButtons.push(Keyboard.button.callback('В главное меню', 'back_to_start'));
-
-  keyboardRows.push(backButtons);
+  keyboardRows.push([
+    Keyboard.button.callback('Главное меню', 'back_to_start')
+  ]);
 
   const keyboard = Keyboard.inlineKeyboard(keyboardRows);
 
