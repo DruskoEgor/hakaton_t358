@@ -1,0 +1,6 @@
+nodejs>=24.9.0
+npm>=11.6.2
+@maxhub/max-bot-api>=0.2.1
+docker>=28.5.2
+archlinux>=Linux 6.17.7-arch1-1
+pacman>=7.0.0
