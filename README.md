@@ -9,7 +9,7 @@
 ```bash
 # Установите Node.js и npm
 sudo pacman -Syu
-sudo pacman -S nodejs npm
+sudo pacman -S node npm
 
 # Создайте папку для бота и перейдите в нее
 mkdir local
